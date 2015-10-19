@@ -22,7 +22,7 @@ use codeace\validator\validator;
  */
 class validatorTest extends \PHPUnit_Framework_TestCase
 {
-    /** @var  StopWatch $stopWatch */
+  
     private $valid;
 
     public function setUp()
