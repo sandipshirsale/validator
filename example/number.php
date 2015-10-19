@@ -1,6 +1,7 @@
 <?php
 /*
  * example for email validation using validator class
+ *
  */
 require_once "../vendor/autoload.php";
 
