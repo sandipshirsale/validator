@@ -14,7 +14,7 @@ namespace Phpunit\validator;
 use codeace\validator\validator;
 
 /**
- * Class StopWatchTest
+ * Class validatorTest
  * @package Phpunit\validator
  * @group codeace
  * @group codeace_validator
@@ -41,7 +41,7 @@ class validatorTest extends \PHPUnit_Framework_TestCase
     /**
      * @group codeace_validator_validator_constructor
      */
-    public function testStopWatchHaveDefaultWatch()
+    public function testForEmailValidation()
     {
         $default_email = $this->valid->is_valid_email('');
 
