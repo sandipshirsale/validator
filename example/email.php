@@ -6,7 +6,7 @@ use codeace\validator\validator;
 
 $valid = new validator();
 
-if(!empty($_POST)){
+if(!empty($_POST)){ // form submit
     try{
         extract($_POST);
         if(!$valid->is_valid_host()){ // prevent hack
