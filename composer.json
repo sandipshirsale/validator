@@ -1,0 +1,22 @@
+{
+    "name": "codeace/validator",
+    "description": "validation class",
+    "require-dev": {
+        "phpunit/phpunit": "4.8"
+    },
+    "license": "codeace",
+    "authors": [
+        {
+            "name": "sandip shirsale",
+            "email": "sandipshirsale@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"codeace\\": "src/codeace"}
+    },
+    "autoload-dev": {
+        "psr-4": {"codeace\\": "tests/codeace"}
+    },
+    "minimum-stability": "beta",
+    "require": {}
+}
