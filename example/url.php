@@ -1,5 +1,7 @@
 <?php
-
+/*
+ * example for url validation using validator class
+ */
 require_once "../vendor/autoload.php";
 
 use codeace\validator\validator;
@@ -19,7 +21,7 @@ if(!empty($_POST)){
             throw new Exception("Please enter valid url.");
 
         }else{
-            throw new Exception("Valid data submitted.");
+              throw new Exception("Valid data submitted.");
         }
     }catch(Exception $e){
        echo $e->getMessage();
