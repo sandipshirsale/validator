@@ -8,20 +8,20 @@ use codeace\validator\validator;
 
 $valid = new validator();
 
-if(!empty($_POST)){ // form submit
-    try{
+if (!empty($_POST)) { // form submit
+    try {
         extract($_POST);
-        if(!$valid->is_valid_host()){ // prevent hack
+        if (!$valid->is_valid_host()) { // prevent hack
             throw new Exception("Please don't use tricks.");
-        }elseif(empty($email)){
+        } elseif (empty($email)) {
             throw new Exception("Please enter email address");
-        }elseif($valid->is_valid_email($email) === false) {
+        } elseif ($valid->is_valid_email($email) === false) {
             throw new Exception("Please enter valid email address.");
-        }else{
-                throw new Exception("Valid email submitted.");
-            }
-    }catch(Exception $e){
-       echo $e->getMessage();
+        } else {
+            throw new Exception("Valid email submitted.");
+        }
+    } catch (Exception $e) {
+        echo $e->getMessage();
     }
 }
 

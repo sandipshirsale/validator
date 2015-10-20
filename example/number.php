@@ -22,10 +22,10 @@ if(!empty($_POST)){
             throw new Exception("Please enter valid numbers.");
 
         }else{
-                throw new Exception("Valid data submitted.");
+            throw new Exception("Valid data submitted.");
         }
     }catch(Exception $e){
-       echo $e->getMessage();
+        echo $e->getMessage();
     }
 }
 ?>

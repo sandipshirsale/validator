@@ -49,6 +49,4 @@ class validatorTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('codeace\validator\validator', $default_email, "Not an instance of Watch");
 
     }
-
-
 }

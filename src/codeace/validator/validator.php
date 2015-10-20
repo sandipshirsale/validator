@@ -32,35 +32,35 @@ class validator
     private $country_code 	  = "US";
     private $port 	          = ":85";
     private $arrCardTypes = array(
-		'Amex' => array(
-			'name'		=>	'American Express',
-			'active'	=> 	true,
-			'iinrange' 	=> 	'34,37',
-			'length'	=> 	15,
-			'cvvlen'	=> 	15,
-		), 
-		'Discover' => array(
-			'name'		=>	'Discover',
-			'active'	=> 	true,
-			'iinrange' 	=> 	'6011,622126-622925,644-649,65',
-			'length'	=> 	16,
+        'Amex' => array(
+            'name'		=>	'American Express',
+            'active'	=> 	true,
+            'iinrange' 	=> 	'34,37',
+            'length'	=> 	15,
             'cvvlen'	=> 	15,
-		), 
-		'MasterCard' => array(
-			'name'		=>	'MasterCard',
-			'active'	=> 	true,
-			'iinrange' 	=> 	'51-55',
-			'length'	=> 	16,
+        ),
+        'Discover' => array(
+            'name'		=>	'Discover',
+            'active'	=> 	true,
+            'iinrange' 	=> 	'6011,622126-622925,644-649,65',
+            'length'	=> 	16,
             'cvvlen'	=> 	15,
-		), 
-		'Visa' => array(
-			'name'		=>	'VISA',
-			'active'	=> 	true,
-			'iinrange' 	=> 	'4',
-			'length'	=> 	16,
+        ),
+        'MasterCard' => array(
+            'name'		=>	'MasterCard',
+            'active'	=> 	true,
+            'iinrange' 	=> 	'51-55',
+            'length'	=> 	16,
             'cvvlen'	=> 	15,
-		)
-	);
+        ),
+        'Visa' => array(
+            'name'		=>	'VISA',
+            'active'	=> 	true,
+            'iinrange' 	=> 	'4',
+            'length'	=> 	16,
+            'cvvlen'	=> 	15,
+        )
+    );
     
     ## Constructor
     function Model_Validator()
@@ -119,7 +119,7 @@ class validator
      */
     function is_valid_domain($value,$domain)
     {
-         if (strpos($value, $domain) !== FALSE) { 
+        if (strpos($value, $domain) !== FALSE) {
             return true;
         } else {
             return false;
@@ -182,33 +182,33 @@ class validator
      */
     function is_valid_phone($value, $format = '##########')
     {
-		if(ctype_digit($value)){
-			if ($format) {
-				$formats = array(
-					$format
-				);
-			} else {
-				$formats = array(
-					'###-###-####',
-					'####-###-###',
-					'(###) ###-###',
-					'####-####-####',
-					'##-###-####-####',
-					'####-####',
-					'###-###-###',
-					'#####-###-###',
-					'##########',
-					'##########',
-					'# ### #####',
-					'#-### #####'
-				);
-			}
+        if(ctype_digit($value)){
+            if ($format) {
+                $formats = array(
+                    $format
+                );
+            } else {
+                $formats = array(
+                    '###-###-####',
+                    '####-###-###',
+                    '(###) ###-###',
+                    '####-####-####',
+                    '##-###-####-####',
+                    '####-####',
+                    '###-###-###',
+                    '#####-###-###',
+                    '##########',
+                    '##########',
+                    '# ### #####',
+                    '#-### #####'
+                );
+            }
 			
-			$value = trim(preg_replace('/[0-9]/', '#', $value));
-			return (in_array($value, $formats)) ? true : false;
-		}else{
-			return false;
-		}
+            $value = trim(preg_replace('/[0-9]/', '#', $value));
+            return (in_array($value, $formats)) ? true : false;
+        }else{
+            return false;
+        }
     }
     
     /**
@@ -322,12 +322,7 @@ class validator
         
     }
     
-    
-    function is_valid_date()
-    {
-        
-    }
-    
+
     /**
      *	sanitize the cross site scription
      */
@@ -349,24 +344,16 @@ class validator
         } else {
             return false;
         }
-	
     }
     
     /**
      *	regenerate the new session after user login activity or as per requirement
      */
-    function regenerate_session($value)
+    function regenerate_session()
     {
-      return  session_regenerate_id();
+        return  session_regenerate_id();
     }
-    
-    /**
-     *	change the session name eg: instead of PHPSESSID set to site name
-     */
-    function session_name($value)
-    {
-        session_name(SITENAME);
-    }
+
     
     function is_valid_expiry($month,$year){
         if(!is_numeric($month)){
@@ -384,8 +371,8 @@ class validator
     
     function is_valid_card_type($creditCardType){
         if(($creditCardType !== null) && !array_key_exists($creditCardType, $this->arrCardTypes)) {
-			return false;
-		}else{
+            return false;
+        }else{
             return true;
         }
     }
@@ -409,6 +396,6 @@ class validator
         if($exit){
             exit;
         }
-
     }
+
 }
